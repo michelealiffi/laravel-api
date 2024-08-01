@@ -8,7 +8,7 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Otteniamo tutti i progetti dal database
         // $projects = Project::with('type', 'technologies')->get();
@@ -18,6 +18,20 @@ class ProjectController extends Controller
         //    'status' => true,
         //    'results' => $projects
         //]);
+
+        $query = Project::query();
+
+        if ($request->has('featured')) {
+            $query->where('featured', true);
+        }
+
+        if ($request->has('draft')) {
+            $query->where('draft', true);
+        }
+
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
 
         $projects = Project::paginate(10); // 10 progetti per pagina
         return response()->json($projects);
