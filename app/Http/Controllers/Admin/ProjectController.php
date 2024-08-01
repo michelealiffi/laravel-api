@@ -108,7 +108,7 @@ class ProjectController extends Controller
     public function destroy(string $id)
     {
         // cancello relazione per sicurezza
-        $project->technologies()->detach();
+        // $project->technologies()->detach();
 
 
 
