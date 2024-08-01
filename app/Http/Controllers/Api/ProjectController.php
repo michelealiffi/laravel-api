@@ -36,4 +36,25 @@ class ProjectController extends Controller
         $projects = Project::paginate(10); // 10 progetti per pagina
         return response()->json($projects);
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $project = new Project;
+        $project->name = $request->name;
+        $project->description = $request->description;
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $project->image = $imagePath;
+        }
+
+        $project->save();
+
+        return response()->json($project, 201);
+    }
 }
