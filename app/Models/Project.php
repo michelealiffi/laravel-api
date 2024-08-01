@@ -23,4 +23,16 @@ class Project extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $guarded = ['id'];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class);
+    }
 }

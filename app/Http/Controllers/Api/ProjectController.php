@@ -11,9 +11,12 @@ class ProjectController extends Controller
     public function index()
     {
         // Otteniamo tutti i progetti dal database
-        $projects = Project::all();
+        $projects = Project::with('type', 'technologies')->get();
 
         // Restituiamo i progetti in formato JSON
-        return response()->json($projects);
+        return response()->json([
+            'status' => true,
+            'results' => $projects
+        ]);
     }
 }

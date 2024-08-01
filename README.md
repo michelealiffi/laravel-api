@@ -16,7 +16,7 @@ L’esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate
 
     -   Testiamo la chiamata API tramite Postman e assicuriamoci di ricevere i dati correttamente.
 
-![alt text]()
+![alt text]("/resources/img/Screenshot 2024-08-01 165216.png")
 
 ### Milestone 3
 
