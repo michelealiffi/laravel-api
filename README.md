@@ -1,99 +1,38 @@
-# Laravel Auth Template
+# Laravel Boolfolio - API
 
-```
-composer create-project laravel/laravel:^10.0 nomeprogetto
-```
+## Descrizione:
 
-# Installazione breeze
-
-```
-composer require laravel/breeze --dev
+```txt
+continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo.
+L’esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate l’ordine.
 ```
 
-# Scaffold dell'autenticazione breeze/blade
+### Milestone 1 &check;
 
-```
-php artisan breeze:install
-```
+    -   nome repo 1: laravel-api
+    -   Aggiungiamo al nostro progetto Laravel una nuovo Api/ProjectController. Questo controller risponderà a delle richieste via API e si occuperà di restituire la lista dei progetti presenti nel database in formato json.
 
-- Which Breeze stack would you like to install? Blade with Alpine
-- Would you like dark mode support? Yes
-- Which testing framework do you prefer? PHPUnit
+### Milestone 2 &check;
 
-## Eseguire i passaggi per installare bootstrap invece di tailwind
+    -   Testiamo la chiamata API tramite Postman e assicuriamoci di ricevere i dati correttamente.
 
-```
-npm remove postcss
-npm remove tailwindcss
-npm i --save-dev sass
-npm i --save bootstrap @popperjs/core
-```
+![alt text]()
 
-Cancellare il file tailwind.config.js e postcss.config.js
+### Milestone 3
 
-```
-rm tailwind.config.js
-rm postcss.config.js
-```
+    -   nome repo 2: vite-boolfolio
+    -   Iniziamo ad occuparci della parte front-office della nostra applicazione: creiamo un nuovo progetto Vue 3 con Vite e installiamo axios.
+    -   Colleghiamo questo progetto ad una repo separata.
 
-Rinominiamo la cartella css in scss
+### Milestone 4
 
-```
-mv resources/css resources/scss
-```
+    -   Nel componente principale della nostra Vue App facciamo una chiamata API all’endpoint costruito nel progetto Laravel (milestone 1) e recuperiamo tutti i progetti dal nostro back-end.
+    -   Stampiamo in console i risultati e verifichiamo di ricevere i dati correttamente.
 
-ed il file app.css in app.scss
+### Milestone 5
 
-```
-mv resources/scss/app.css  resources/scss/app.scss
-```
+    -   Creiamo un nuovo componente ProjectCard, che corrisponde ad una card per visualizzare un progetto. Utilizziamo questo componente per visualizzare tutti i progetti ricevuti tramite API.
 
-## Nel file app.scss
+### Bonus:
 
-Cancelliamo gli import di tailwind dal file app.scss e inseriamo:
-
-```
-@import "~bootstrap/scss/bootstrap";
-```
-
-## Nel file vite.config.js
-
-- modifichiamo il percorso del css
-- aggiungiamo un alias per resources e per il bootstrap
-
-```
-import path from 'path';
-
-resolve: {
-        alias: {
-            '~resources': '/resources/',
-            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap')
-        }
-    },
-```
-
-## Nel file app.js
-
-- togliere il codice che imposta alpine, lasciando solo la prima riga
-- importare app.css, bootstrap e img
-
-```
-import '~resources/scss/app.scss'
-import * as bootstrap from 'bootstrap'
-import.meta.glob([
-    '../img/**'
-])
-```
-
-## Inserire le views con bootstrap
-
-Cancellare tutti i file di default dalla cartella views e inserire i file presenti in questa repo
-
-## Partenza
-
-1. installare le dipendenze di npm e composer
-2. inserire dati nel file .env
-3. far partire le migrations
-4. avviare il server (php e node)
-
-Buon lavoro!
+    -   Gestire la paginazione dei risultati
